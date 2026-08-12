@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0b1220">
+<meta name="description" content="Venomed — guide de terrain des envenimations en France pour professionnels de santé.">
+<title>Venomed</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app"></div>
+
+<!-- Bottom navigation -->
+<nav id="tabbar" class="tabbar" hidden>
+  <button data-nav="#/" class="tab" aria-label="Accueil">
+    <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
+    <span>Accueil</span>
+  </button>
+  <button data-nav="#/search" class="tab" aria-label="Recherche">
+    <svg viewBox="0 0 24 24"><path d="M10 4a6 6 0 1 1 0 12 6 6 0 0 1 0-12zm8 16-4.35-4.35"/></svg>
+    <span>Recherche</span>
+  </button>
+  <button data-nav="#/urgence" class="tab" aria-label="Urgence">
+    <svg viewBox="0 0 24 24"><path d="M12 2 3 7v6c0 5 3.8 8.6 9 9 5.2-.4 9-4 9-9V7z"/></svg>
+    <span>Urgence</span>
+  </button>
+  <button data-nav="#/sources" class="tab" aria-label="Sources">
+    <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 9h16M9 5v14"/></svg>
+    <span>Sources</span>
+  </button>
+</nav>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(()=>{}));
+}
+</script>
+</body>
+</html>
