@@ -73,7 +73,7 @@ img{display:block;max-width:100%}
 .cat-card .cat-empty{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted2)}
 .cat-card .cat-empty svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.5}
 .cat-card .cat-cap{padding:10px 12px 11px}
-.cat-card .cat-name{font-weight:700;font-size:1rem;line-height:1.2}
+.cat-card .cat-name{font-weight:700;font-size:1rem;line-height:1.2;color:#ffffff}
 .cat-card .cat-count{font-size:.74rem;color:var(--muted);margin-top:3px}
 
 /* ---------- List rows (species) ---------- */
@@ -223,3 +223,11 @@ img{display:block;max-width:100%}
 
 /* Sources : pleine largeur, aligné à gauche */
 .card .body.sources{white-space:pre-wrap;word-break:break-word}
+
+/* ============ v3 : légendes de galerie + page "Photos de morsures" ============ */
+.gallery-legend{font-size:.82rem;color:var(--muted);line-height:1.5;margin:10px 2px 2px;font-style:italic}
+.syn-embed .gallery-legend{color:#e6b9c0}
+.row .thumb.ph.gal{background:linear-gradient(135deg,#132a3d,#0f1f30);color:var(--accent);border:1px solid var(--accent-d)}
+.photocard{margin:0 0 18px}
+.photocard .gthumb.wide{width:100%;aspect-ratio:4/3;border-radius:14px}
+.photocard figcaption{font-size:.9rem;color:#dbe3f4;line-height:1.55;margin-top:9px;padding:0 2px}

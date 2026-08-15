@@ -1,0 +1,42 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0" stop-color="#14243f"/>
+      <stop offset="1" stop-color="#0a1220"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4ee7d0"/>
+      <stop offset="1" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="tealsoft" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#0e6f67"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="116" fill="url(#bg)"/>
+  <rect x="8" y="8" width="496" height="496" rx="110" fill="none" stroke="#2dd4bf" stroke-opacity="0.14" stroke-width="3"/>
+
+  <!-- faint V chevron backdrop -->
+  <path d="M150 176 L256 360 L362 176" fill="none" stroke="#2dd4bf" stroke-opacity="0.13"
+        stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- snake body forming a V -->
+  <path d="M156 168 C150 244 226 262 256 330 C286 262 362 244 356 168"
+        fill="none" stroke="url(#teal)" stroke-width="38" stroke-linecap="round"/>
+  <!-- scale hints -->
+  <path d="M198 236 C214 244 226 254 234 270 M278 270 C286 254 298 244 314 236"
+        fill="none" stroke="#08302b" stroke-opacity="0.35" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- snake head -->
+  <path d="M156 168 m-30 -6 a30 32 0 1 0 60 4 a30 30 0 0 1 -60 -4 Z" fill="url(#tealsoft)"/>
+  <circle cx="152" cy="150" r="22" fill="url(#tealsoft)"/>
+  <circle cx="145" cy="145" r="4.6" fill="#062018"/>
+  <!-- forked tongue -->
+  <path d="M150 128 L150 104 M150 104 L141 93 M150 104 L159 93"
+        fill="none" stroke="#f0556b" stroke-width="6.5" stroke-linecap="round"/>
+
+  <!-- venom droplet at the V tip -->
+  <path d="M256 322 c-17 24 -17 44 0 44 17 0 17 -20 0 -44 Z" fill="#eafffb"/>
+  <path d="M256 336 c-8 11 -8 21 0 21 8 0 8 -10 0 -21 Z" fill="#2dd4bf" opacity="0.55"/>
+</svg>

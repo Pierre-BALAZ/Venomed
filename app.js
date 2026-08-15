@@ -30,6 +30,7 @@ var IC={
   shield:'<path d="M12 2 4 6v6c0 5 3.4 8.5 8 9 4.6-.5 8-4 8-9V6z"/>',
   steth:'<path d="M4.5 2A2.5 2.5 0 0 0 2 4.5V9a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4.5A2.5 2.5 0 0 0 11.5 2M8 15v1.5a5.5 5.5 0 0 0 11 0V13"/><circle cx="20" cy="10.5" r="2.2"/>',
   info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>',
+  camera:'<path d="M3 8h3.5l1.5-2h8l1.5 2H21v12H3z"/><circle cx="12" cy="13.5" r="3.6"/>',
   zoom:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/>',
   x:'<path d="M18 6 6 18M6 6l12 12"/>',
   arrowL:'<path d="M15 18l-6-6 6-6"/>', arrowR:'<path d="M9 18l6-6-6-6"/>'
@@ -39,7 +40,7 @@ function dangerBadge(s){ var d=(s.danger_short||'').trim(); if(!d||d==='—')ret
 
 // ---- gallery + lightbox ----
 window.__GAL__={}; var galSeq=0;
-function galleryHTML(images){
+function galleryHTML(images, caption){
   if(!images||!images.length) return '';
   var id='g'+(++galSeq); window.__GAL__[id]=images.map(imgurl);
   var single=images.length===1?' single':'';
@@ -47,7 +48,8 @@ function galleryHTML(images){
     return '<button class="gthumb" data-gal="'+id+'" data-idx="'+i+'" aria-label="Agrandir la photo '+(i+1)+'">'+
       '<img src="'+imgurl(f)+'" alt="" loading="lazy"><span class="zoomtag">'+svg(IC.zoom)+'</span></button>';
   }).join('');
-  return '<div class="gallery2'+single+'">'+thumbs+'</div>';
+  var leg = caption ? '<div class="gallery-legend">'+fmt(caption)+'</div>' : '';
+  return '<div class="gallery2'+single+'">'+thumbs+'</div>'+leg;
 }
 
 // lightbox singleton
@@ -111,7 +113,7 @@ function viewHome(){
     var cover=catCover(c.id); var n=speciesOfCat(c.id).length;
     return '<button class="cat-card" data-nav="#/cat/'+c.id+'">'+
       '<div class="cat-thumb">'+(cover?'<img class="cat-img" src="'+imgurl(cover)+'" alt="" loading="lazy">':'<div class="cat-empty">'+svg(IC.info)+'</div>')+'</div>'+
-      '<div class="cat-cap"><div class="cat-name">'+esc(c.title.replace(' de France',''))+'</div>'+
+      '<div class="cat-cap"><div class="cat-name">'+esc(c.title.replace(/ de France.*/,''))+'</div>'+
       '<div class="cat-count">'+n+' fiche'+(n>1?'s':'')+'</div></div></button>';
   }).join('');
   return '<div class="view">'+
@@ -128,11 +130,30 @@ function viewHome(){
     '</div></div>';
 }
 
+function galleriesOfCat(cid){ return (D.galleries||[]).filter(function(g){return g.category===cid;}); }
+function galleryRow(g){
+  var n=g.items.length;
+  return '<button class="row" data-nav="#/gal/'+g.id+'"><div class="thumb ph gal">'+svg(IC.camera)+'</div>'+
+    '<div class="r-main"><div class="r-name">'+esc(g.title)+'</div><div class="r-sub">'+n+' photo'+(n>1?'s':'')+'</div></div>'+
+    '<span class="chev">'+svg(IC.chev)+'</span></button>';
+}
 function viewCategory(cid){
   var c=catById[cid]; if(!c) return viewNotFound();
+  var gals=galleriesOfCat(cid).map(galleryRow).join('');
   var list=speciesOfCat(cid).map(speciesRow).join('');
   return '<div class="view">'+appbar(c.title, speciesOfCat(cid).length+' fiches', true)+
-    '<div class="wrap"><div class="list">'+list+'</div></div></div>';
+    '<div class="wrap"><div class="list">'+gals+list+'</div></div></div>';
+}
+function viewGallery(id){
+  var g=(D.galleries||[]).filter(function(x){return x.id===id;})[0]; if(!g) return viewNotFound();
+  var c=catById[g.category];
+  var glid='g'+(++galSeq); window.__GAL__[glid]=g.items.map(function(it){return imgurl(it.img);});
+  var cards=g.items.map(function(it,i){
+    return '<figure class="photocard"><button class="gthumb wide" data-gal="'+glid+'" data-idx="'+i+'" aria-label="Agrandir la photo '+(i+1)+'">'+
+      '<img src="'+imgurl(it.img)+'" alt="" loading="lazy"><span class="zoomtag">'+svg(IC.zoom)+'</span></button>'+
+      (it.caption?'<figcaption>'+fmt(it.caption)+'</figcaption>':'')+'</figure>';
+  }).join('');
+  return '<div class="view">'+appbar(g.title, c?c.title:'', true)+'<div class="wrap">'+cards+'</div></div>';
 }
 function speciesRow(s){
   var thumb=(s.images&&s.images.length)?'<img class="thumb" src="'+imgurl(s.images[0])+'" alt="" loading="lazy">':'<div class="thumb ph">'+svg(IC.info)+'</div>';
@@ -144,7 +165,7 @@ function speciesRow(s){
 // render a syndrome's inner content (sub-sections + gallery), no outer card
 function syndromeInner(sy){
   var html='<div class="syn-embed"><div class="syn-embed-title">'+svg(IC.steth)+esc(sy.name)+'</div>';
-  html+=galleryHTML(sy.images);
+  html+=galleryHTML(sy.images, sy.gallery_caption);
   sy.sections.forEach(function(sec){
     if(sec.h) html+='<div class="synhead">'+esc(sec.h)+'</div>';
     if(sec.body) html+='<div class="body">'+fmt(sec.body)+'</div>';
@@ -154,7 +175,7 @@ function syndromeInner(sy){
 
 function viewSpecies(id){
   var s=speciesById[id]; if(!s) return viewNotFound();
-  var top=galleryHTML(s.images);
+  var top=galleryHTML(s.images, s.gallery_caption);
   var secs=(s.sections||[]).slice();
   // header + latin name
   var head='<div class="detail-head"><h2>'+esc(s.name)+'</h2>';
@@ -247,6 +268,7 @@ function render(){
   else if((m=h.match(/^#\/cat\/(.+)$/))){ html=viewCategory(decodeURIComponent(m[1])); }
   else if((m=h.match(/^#\/sp\/(.+)$/))){ html=viewSpecies(decodeURIComponent(m[1])); }
   else if((m=h.match(/^#\/syn\/(.+)$/))){ html=viewSyndrome(decodeURIComponent(m[1])); }
+  else if((m=h.match(/^#\/gal\/(.+)$/))){ html=viewGallery(decodeURIComponent(m[1])); }
   else if(h==='#/search'){ html=viewSearch(); }
   else if(h==='#/urgence'){ html=viewUrgence(); }
   else if(h==='#/sources'){ html=viewSources(); }

@@ -3,7 +3,7 @@
   {
    "id": "menu-serpents",
    "menu_id": "Menu serpents",
-   "title": "Serpents de France"
+   "title": "Serpents de France métropolitaine"
   },
   {
    "id": "menu-araignees",
@@ -41,7 +41,7 @@
    "id": "coronelle-lisse",
    "name": "Coronelle lisse",
    "category": "menu-serpents",
-   "category_title": "Serpents de France",
+   "category_title": "Serpents de France métropolitaine",
    "danger": "Inoffensif",
    "id_screen": "Coronelle lisse 1",
    "info_screen": "Coronelle lisse 2",
@@ -73,7 +73,7 @@
    "id": "coronelle-girondine",
    "name": "Coronelle girondine",
    "category": "menu-serpents",
-   "category_title": "Serpents de France",
+   "category_title": "Serpents de France métropolitaine",
    "danger": "Inoffensif",
    "id_screen": "Coronelle Girondine 1",
    "info_screen": "Coronelle girondine 2",
@@ -105,7 +105,7 @@
    "id": "couleuvre-a-collier",
    "name": "Couleuvre à collier",
    "category": "menu-serpents",
-   "category_title": "Serpents de France",
+   "category_title": "Serpents de France métropolitaine",
    "danger": "Inoffensif",
    "id_screen": "Couleuvre a collier 1",
    "info_screen": "Couleuvre a collier 2",
@@ -137,7 +137,7 @@
    "id": "couleuvre-a-echelons",
    "name": "Couleuvre à échelons",
    "category": "menu-serpents",
-   "category_title": "Serpents de France",
+   "category_title": "Serpents de France métropolitaine",
    "danger": "Inoffensif",
    "id_screen": "Couleuvre a echelon 1",
    "info_screen": "Couleuvre a echelon 2",
@@ -169,7 +169,7 @@
    "id": "couleuvre-de-montpellier",
    "name": "Couleuvre de Montpellier",
    "category": "menu-serpents",
-   "category_title": "Serpents de France",
+   "category_title": "Serpents de France métropolitaine",
    "danger": "Potentiellement venimeux\nEnvenimation particulière",
    "id_screen": "Couleuvre de MTP 1",
    "info_screen": "Couleuvre de MTP 2",
@@ -177,8 +177,7 @@
     "ResFile147446014799.webp",
     "ResFile147446016278.webp",
     "ResFile147446017442.webp",
-    "ResFile147446018671.webp",
-    "couleuvre_bite.webp"
+    "ResFile147446018671.webp"
    ],
    "syndrome": null,
    "sections": [
@@ -202,7 +201,7 @@
    "id": "couleuvre-d-esculape",
    "name": "Couleuvre d'Esculape",
    "category": "menu-serpents",
-   "category_title": "Serpents de France",
+   "category_title": "Serpents de France métropolitaine",
    "danger": "Inoffensif",
    "id_screen": "Couleuvre esculape 1",
    "info_screen": "couleuvre esculape 2",
@@ -234,7 +233,7 @@
    "id": "couleuvre-verte-et-jaune",
    "name": "Couleuvre verte et jaune",
    "category": "menu-serpents",
-   "category_title": "Serpents de France",
+   "category_title": "Serpents de France métropolitaine",
    "danger": "Inoffensif",
    "id_screen": "Couleuvre verte et jaune 1",
    "info_screen": "couleuvre verte et jaune 2",
@@ -266,7 +265,7 @@
    "id": "couleuvre-viperine",
    "name": "Couleuvre vipérine",
    "category": "menu-serpents",
-   "category_title": "Serpents de France",
+   "category_title": "Serpents de France métropolitaine",
    "danger": "Inoffensif",
    "id_screen": "Couleuvre vipérine 1",
    "info_screen": "Couleuvre vipérine 2",
@@ -298,7 +297,7 @@
    "id": "vipere-aspic",
    "name": "Vipère aspic",
    "category": "menu-serpents",
-   "category_title": "Serpents de France",
+   "category_title": "Serpents de France métropolitaine",
    "danger": "Venimeux\nSyndrome vipérin",
    "id_screen": "Vipere Aspic 1",
    "info_screen": "Vipère aspic 2",
@@ -330,7 +329,7 @@
    "id": "vipere-d-orsini",
    "name": "Vipère d'Orsini",
    "category": "menu-serpents",
-   "category_title": "Serpents de France",
+   "category_title": "Serpents de France métropolitaine",
    "danger": "Potentiellement venimeux\nSyndrome vipérin",
    "id_screen": "Vipère Orsini 1",
    "info_screen": "Vipère Orsini 2",
@@ -361,7 +360,7 @@
    "id": "vipere-de-seoane",
    "name": "Vipère de Séoane",
    "category": "menu-serpents",
-   "category_title": "Serpents de France",
+   "category_title": "Serpents de France métropolitaine",
    "danger": "Venimeux\nSyndrome vipérin",
    "id_screen": "vipère seoane 1",
    "info_screen": "vipère seoane 2",
@@ -393,7 +392,7 @@
    "id": "vipere-peliade",
    "name": "Vipère péliade",
    "category": "menu-serpents",
-   "category_title": "Serpents de France",
+   "category_title": "Serpents de France métropolitaine",
    "danger": "Venimeux\nSyndrome vipérin",
    "id_screen": "Vipère péliade 1",
    "info_screen": "Vipère péliade 2",
@@ -1056,7 +1055,8 @@
    "id_screen": null,
    "info_screen": "Raies 2",
    "images": [
-    "raie_1.webp"
+    "raie_1.webp",
+    "raie_piqure_bastia.webp"
    ],
    "syndrome": null,
    "sections": [
@@ -1331,10 +1331,7 @@
    "id": "syndrome-viperin",
    "name": "Syndrome vipérin",
    "header": "Evenimation : syndrome vipérin",
-   "images": [
-    "viper_bite_1.webp",
-    "viper_bite_2.webp"
-   ],
+   "images": [],
    "sections": [
     {
      "h": null,
@@ -1443,7 +1440,8 @@
     "loxo_clin_2.webp",
     "loxo_clin_3.webp",
     "loxo_clin_4.webp",
-    "loxo_clin_5.webp"
+    "loxo_clin_5.webp",
+    "loxo_clin_6.webp"
    ],
    "sections": [
     {
@@ -1462,7 +1460,8 @@
      "h": "TRAITEMENT",
      "body": "Un traitement symptomatique, antalgique, doit être administré.\nIl n'existe pas de traitement spécifique, le traitement sera celui des complications."
     }
-   ]
+   ],
+   "gallery_caption": "Photos de 4 patients différents, mordus en été par des loxocèles, à Toulon (Var). 3 d'entre eux ont nécessité une prise en charge chirurgicale assez délabrante."
   },
   {
    "id": "steatodisme",
@@ -1582,5 +1581,26 @@
     "body": "SOURCES & REMERCIEMENTS\n\nLe site de référence mondial : https://www.vapaguide.info/\n\nDONNÉES MÉDICALES & ARTICLES\nAvec l'aide du Dr De Haro du CAP Marseille.\n\n- « Envenimation cobraïque » (Georges Mion, Sébastien Larréché, Mohammed Chani, Alain Benois)\n- « Envenimations et morsures animales » (J-J. Morand)\n- « Morsures d'araignées : les aranéismes d'importance médicale » (Philip Pommier, Christine Rollard, Luc de Haro)\n- « Animaux venimeux terrestres » (L. de Haro)\n- « Management of snakebites in France » (Luc de Haro)\n- « Un cas de stéatodisme observé en Languedoc après morsure d'araignée du genre Steatoda » (Philip Pommier, Christine Rollard, Luc de Haro)\n- Collège National des Enseignants de Réanimation Médicale (CNERM)\n\nDONNÉES ANIMALES ET PICTURALES\n- Le site https://serpent.cheloniophilie.com, dont sont tirées toutes les photos de serpents, avec l'aimable autorisation de son webmaster.\n- Wikipedia, pour les photos hors celles des serpents, et pour les données relatives au mode de vie des animaux présentés.\n\nPHOTOGRAPHIES CLINIQUES\nClichés de loxocélisme, de morsure de vipère (envenimation grade 2) et de morsure de couleuvre réalisés par l'auteur, à l'HIA Sainte-Anne (Toulon) et au CH de Hyères, avec l'accord des patients concernés."
    }
   ]
- }
+ },
+ "galleries": [
+  {
+   "id": "morsures-serpents",
+   "title": "Photos de morsures",
+   "category": "menu-serpents",
+   "items": [
+    {
+     "img": "couleuvre_bite.webp",
+     "caption": "Morsure de couleuvre d'Esculape, près de Tours. Les traces de dents, en forme de demi-cercle, sont bien visibles. Il n'y a pas de traces de crochets car la majorité des couleuvres n'en disposent pas."
+    },
+    {
+     "img": "viper_bite_1.webp",
+     "caption": "Morsure de vipère, sous-espèce non précisée, à Hyères. On remarque les 2 points correspondant à la trace des crochets et au point d'injection. On note le net œdème du pied atteint, et l'on devine une suffusion hémorragique sous la malléole. La biologie confirmait les troubles de la coagulation, signant ainsi un grade 2."
+    },
+    {
+     "img": "viper_bite_2.webp",
+     "caption": "Morsure de vipère, sous-espèce non précisée, à Hyères. On remarque les 2 points correspondant à la trace des crochets et au point d'injection. On note le net œdème du pied atteint, et l'on devine une suffusion hémorragique sous la malléole. La biologie confirmait les troubles de la coagulation, signant ainsi un grade 2."
+    }
+   ]
+  }
+ ]
 }
